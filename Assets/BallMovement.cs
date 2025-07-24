@@ -11,23 +11,17 @@ public class BallMovement : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        SetInitialSpeed();
-    }
-
-    private void SetInitialSpeed()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(-1f, 1f);
-        rb.velocity = new Vector2(x, y).normalized * Random.Range(minSpeed, maxSpeed);
     }
 
     public void Restart()
     {
         transform.position = Vector3.zero;
-        SetInitialSpeed();
+        float x = Random.Range(-1f, 1f);
+        float y = Random.Range(-1f, 1f);
+        rb.velocity = new Vector2(x, y).normalized * Random.Range(minSpeed, maxSpeed);
     }
 
     void FixedUpdate()
