@@ -1070,6 +1070,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7049510909599521579, guid: 4a71a4eeb7d6c8645848029c8d38a6b9, type: 3}
   m_PrefabInstance: {fileID: 1467026116}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1312688972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312688966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb4a33788c839646b92cc6bb95d0958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1001 &1467026116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1130,10 +1143,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaddleRight
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3006615243750305585, guid: 4a71a4eeb7d6c8645848029c8d38a6b9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7049510909599521579, guid: 4a71a4eeb7d6c8645848029c8d38a6b9, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1312688972}
   m_SourcePrefab: {fileID: 100100000, guid: 4a71a4eeb7d6c8645848029c8d38a6b9, type: 3}
 --- !u!1 &1502803985
 GameObject:

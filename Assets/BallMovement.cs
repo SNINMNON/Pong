@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallMovement : MonoBehaviour
@@ -18,8 +19,18 @@ public class BallMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void Restart()
+    void Start()
     {
+        Restart((GameManager.Side)Random.Range(0, 2));
+        GameManager.Instance.scoreEvent.AddListener(Restart);
+        GameManager.Instance.gameOverEvent.AddListener(Restart);
+        GameManager.Instance.restartEvent.AddListener(()=>Restart(GameManager.Side.Left));
+    }
+
+    public void Restart(GameManager.Side side)
+    {
+        //Debug.Log($"restart, side={(side == GameManager.Side.Left ? "Left" : "Right")}");
+        // TODO: launch ball according to side (last score side)
         transform.position = Vector3.zero;
         float x = Random.Range(-1f, 1f);
         float y = Random.Range(-1f, 1f);
@@ -32,7 +43,7 @@ public class BallMovement : MonoBehaviour
         lastVelocity = rb.velocity;
         if (rb.velocity == Vector2.zero)
         {
-            Restart();
+            Restart(GameManager.Side.Left);
         }
     }
 
@@ -66,7 +77,7 @@ public class BallMovement : MonoBehaviour
             speed = fasterSpeed;
         }
 
-        Debug.Log($"Ball speed: {speed}");
+        //Debug.Log($"Ball speed: {speed}");
         
     }
 }

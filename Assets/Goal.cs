@@ -13,6 +13,9 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.Instance.Score(gameObject.CompareTag("left"));
+        if (gameObject.CompareTag("left"))
+            GameManager.Instance.scoreEvent.Invoke(GameManager.Side.Right);
+        else
+            GameManager.Instance.scoreEvent.Invoke(GameManager.Side.Left);
     }
 }
